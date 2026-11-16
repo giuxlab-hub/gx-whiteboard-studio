@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 GiuxLab
+
 cmake_minimum_required(VERSION 3.20)
 project(GXWhiteboardStudio VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
@@ -46,3 +49,7 @@ install(FILES packaging/gx-whiteboard-studio.svg
         DESTINATION share/icons/hicolor/scalable/apps)
 install(FILES docs/manual_it.html docs/manual_en.html
         DESTINATION share/doc/gx-whiteboard-studio)
+
+# Distribute the exact upstream license and Debian copyright metadata.
+install(FILES LICENSE DESTINATION share/doc/gx-whiteboard-studio)
+install(FILES packaging/copyright DESTINATION share/doc/gx-whiteboard-studio)

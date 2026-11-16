@@ -1,6 +1,6 @@
 # GX Whiteboard Studio
 
-**Version 0.1.0 — release candidate `v0.1.0-rc1`**
+**Version 0.1.0 — release candidate `v0.1.0-rc2`**
 Native C++17 / Qt6 desktop whiteboard and audiovisual recorder for **Debian 13 (amd64), XFCE/X11**.
 
 GX Whiteboard Studio is an independent GiuxLab application, separate from GX-TXT.
@@ -15,10 +15,10 @@ GX Whiteboard Studio is an independent GiuxLab application, separate from GX-TXT
 
 ## Install the Debian package
 
-Download `gx-whiteboard-studio_0.1.0-1_amd64.deb` from the [0.1.0-rc1 GitHub release](https://github.com/giuxlab-hub/gx-whiteboard-studio/releases/tag/v0.1.0-rc1), then run:
+Download `gx-whiteboard-studio_0.1.0-2_amd64.deb` from the [0.1.0-rc1 GitHub release](https://github.com/giuxlab-hub/gx-whiteboard-studio/releases/tag/v0.1.0-rc2), then run:
 
 ```bash
-sudo apt install ./gx-whiteboard-studio_0.1.0-1_amd64.deb
+sudo apt install ./gx-whiteboard-studio_0.1.0-2_amd64.deb
 gx-whiteboard-studio
 ```
 
@@ -27,7 +27,7 @@ The application appears in the Graphics menu. Double-click `.gxwp` and `.gxwb` f
 **Original approved package SHA-256:**
 
 ```text
-dc8d5724f42cd724c497b0262610d90462504e0310ddd1690b87a7efc004a7d4
+81f4201acd354398ce748655f50feead9a94ea21b3982c47a5c8b1d89730d3c5
 ```
 
 To uninstall:
@@ -84,4 +84,6 @@ Synthetic test images and a synthetic H.264 stream in `assets/` support the orig
 
 F08 recorded successful Release build, 17 regression suites, four ASAN/UBSAN suites, simulated APT installation and verification of the extracted Debian package. The owner tested physical Wacom, webcam microphone, Mute and Thunar drag-and-drop. **Global Debian installation was not performed** during F08 qualification.
 
-**License:** GX Whiteboard Studio is released under the **GNU General Public License, version 3 (GPL-3.0-only)**, as specified by the owner. See [LICENSE](LICENSE) for the complete terms. This repository is public.
+**License:** GX Whiteboard Studio is released under the **GNU General Public License, version 3 (GPL-3.0-or-later)**, as specified by the owner. See [LICENSE](LICENSE) for the complete terms. This repository is public.
+
+Debian revision 0.1.0-2 includes the owner-approved GPL-3.0-or-later SPDX and copyright metadata, full license text and installed Debian copyright file. It upgrades the previous 0.1.0-1 Debian revision while the application version remains 0.1.0.

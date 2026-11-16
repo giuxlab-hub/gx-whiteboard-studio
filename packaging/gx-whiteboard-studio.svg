@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later | Copyright (C) 2026 GiuxLab -->
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
 <title>GX Whiteboard Studio</title>
 <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#285a92"/><stop offset="1" stop-color="#153450"/></linearGradient></defs>

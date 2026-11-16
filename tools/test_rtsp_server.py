@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 GiuxLab
 """F05 loopback-only RTSP/H264 server, RTP over TCP. Synthetic frames only."""
 import argparse
 import base64

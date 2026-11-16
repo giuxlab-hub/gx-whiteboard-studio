@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 GiuxLab
 """Loopback-only synthetic HTTP MJPEG camera for F05 QA. No real camera data."""
 import argparse
 import io

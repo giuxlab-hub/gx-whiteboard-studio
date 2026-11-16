@@ -1,0 +1,22 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: GX Whiteboard Studio
+Files: *
+Copyright: 2026 GiuxLab
+License: GPL-3+
+ GX Whiteboard Studio is free software: you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+ .
+ GX Whiteboard Studio is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 3 is in /usr/share/common-licenses/GPL-3.
+ .
+ The full verbatim GNU GPL version 3 text is also provided in the
+ upstream file LICENSE and installed in the package documentation.
+ .
+ Dependencies such as Qt, FFmpeg and PulseAudio remain subject to
+ their own upstream licenses.

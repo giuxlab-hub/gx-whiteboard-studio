@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 GiuxLab
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 STAGE="$ROOT/package-root"
-OUT="$ROOT/dist/gx-whiteboard-studio_0.1.0-1_amd64.deb"
+OUT="$ROOT/dist/gx-whiteboard-studio_0.1.0-2_amd64.deb"
 BIN="$STAGE/usr/bin/gx-whiteboard-studio"
 test -x "$BIN" || { printf 'Missing staged executable. Run cmake --install first.\n' >&2;exit 1; }
 mkdir -p "$STAGE/DEBIAN" "$ROOT/dist"
@@ -18,7 +20,7 @@ test -n "$dynamic_deps"
 size="$(du -sk "$STAGE/usr" | cut -f1)"
 cat > "$STAGE/DEBIAN/control" <<EOF
 Package: gx-whiteboard-studio
-Version: 0.1.0-1
+Version: 0.1.0-2
 Section: graphics
 Priority: optional
 Architecture: amd64

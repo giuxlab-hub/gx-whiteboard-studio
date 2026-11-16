@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 GiuxLab
+
 #include "StudioWindow.h"
 #include "LanScanDialog.h"
 #include "RecordingDialog.h"
@@ -785,8 +788,9 @@ void StudioWindow::buildUI() {
     });
     aboutAction_ = helpMenu_->addAction(QString());
     connect(aboutAction_, &QAction::triggered, this, [this]() {
-        QMessageBox::information(this, "GX Whiteboard Studio", loc_.tr(
-            "Version 0.1.0 — Drawing, media, scenes and FFmpeg recording."));
+        QMessageBox::information(this, "GX Whiteboard Studio",
+            loc_.tr("Version 0.1.0 — Drawing, media, scenes and FFmpeg recording.")+
+            QString("\nCopyright (C) 2026 GiuxLab\nGPL-3.0-or-later"));
     });
 
     toolbar_ = new QToolBar(this);

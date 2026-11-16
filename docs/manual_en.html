@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later | Copyright (C) 2026 GiuxLab -->
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GX Whiteboard Studio — User Manual</title>
@@ -12,4 +13,5 @@
 <h2>7. Diagnostics and recovery</h2><p>Each recording creates a local sidecar file named <code>name.mkv.recording-report.json</code> with frame counts, dropped frames and encoder status. If MP4 conversion fails, a valid MKV remains available. Projects are saved atomically, with a previous-version <code>.gxwp.bak</code> backup when appropriate. Automatic recovery checkpoints are stored in XDG application data, and the application can offer recovery after an interruption. If the original project is corrupt, restore the backup into a new filename rather than overwriting either source.</p>
 <div class="note"><strong>Known limitations:</strong> a real-world continuous 30-minute recording is still awaiting routine-use validation. Authenticated IP cameras have not been validated. The program does not automatically upload data to the Internet.</div>
 <h2>8. Key shortcuts</h2><table><tr><th>Command</th><th>Shortcut</th></tr><tr><td>Start/stop recording</td><td>Ctrl+Shift+R</td></tr><tr><td>Mute</td><td>Ctrl+Shift+M</td></tr><tr><td>Save project</td><td>Ctrl+S</td></tr><tr><td>Open project</td><td>Ctrl+O</td></tr><tr><td>New project</td><td>Ctrl+N</td></tr><tr><td>Fullscreen</td><td>F11</td></tr><tr><td>Undo</td><td>Ctrl+Z</td></tr></table>
-<p>Independent GiuxLab software. No modifications to the GX-TXT CORE.</p></body></html>
+<p>Independent GiuxLab software. No modifications to the GX-TXT CORE.</p><p><strong>License:</strong> GNU GPL version 3 or any later version (GPL-3.0-or-later). Copyright © 2026 GiuxLab. Full license in LICENSE and in the Debian package. No warranty.</p>
+</body></html>

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 GiuxLab
 """Compile simple GNU gettext PO files into standard MO catalogs, without installing gettext.
 Supports UTF-8 msgid/msgstr, multiline strings, comments, and fuzzy markers.
 Plural forms and msgctxt deliberately fail until implemented rather than being silently corrupted.

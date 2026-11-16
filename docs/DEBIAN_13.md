@@ -1,6 +1,6 @@
 # Debian 13: build and runtime dependencies
 
-GX Whiteboard Studio 0.1.0-1 targets Debian 13 (trixie), amd64, Qt6, XFCE/X11.
+GX Whiteboard Studio 0.1.0-2 targets Debian 13 (trixie), amd64, Qt6, XFCE/X11.
 
 ## Build dependencies
 
@@ -14,7 +14,7 @@ CMake must be version 3.20 or later. The application uses C++17, Qt6 Widgets and
 
 `tools/build_deb.sh` uses `dpkg-shlibdeps`, `fakeroot` and `dpkg-deb`. It writes to the checkout-local `results/`, `package-root/` and `dist/` directories. Prepare the `results/` directory before packaging.
 
-## Original Debian control dependencies
+## Debian 0.1.0-2 control dependencies
 
 The approved Debian package declares:
 
@@ -55,7 +55,7 @@ DESTDIR="$PWD/package-root" cmake --install build
 
 The script computes runtime dependencies from the staged executable. Its result is a locally rebuilt test package and is distinct from the original, approved F08 binary package used for the release asset.
 
-The original Debian package includes exactly these eight regular files:
+The accepted Debian 0.1.0-2 package includes exactly these ten regular files:
 
 - `/usr/bin/gx-whiteboard-studio`
 - `/usr/share/applications/gx-whiteboard-studio.desktop`
@@ -65,8 +65,10 @@ The original Debian package includes exactly these eight regular files:
 - `/usr/share/locale/en/LC_MESSAGES/gx-whiteboard-studio.mo`
 - `/usr/share/doc/gx-whiteboard-studio/manual_it.html`
 - `/usr/share/doc/gx-whiteboard-studio/manual_en.html`
+- `/usr/share/doc/gx-whiteboard-studio/LICENSE`
+- `/usr/share/doc/gx-whiteboard-studio/copyright`
 
-The original `.deb` executable and catalog bytes are identical to the approved F08 Release build. All five noncompiled installed resources are identical to the original F08 desktop and documentation files.
+The original `.deb` executable and catalog bytes are identical to the approved F08 Release build. All seven noncompiled installed resources are identical to the original F08 desktop and documentation files.
 
 ## Uninstall
 
@@ -75,3 +77,5 @@ sudo apt remove gx-whiteboard-studio
 ```
 
 No automatic deletion of local `.gxwp`, `.gxwb`, recordings, or user XDG data is part of the package's removal workflow.
+
+License is GPL-3.0-or-later with copyright (C) 2026 GiuxLab. The Debian package carries the original upstream GPLv3 full text and GPL-3+ metadata from packaging/copyright. The application version remains 0.1.0.

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 GiuxLab
+
 #include "RecordingEngine.h"
 #include <QCoreApplication>
 #include <QFileInfo>

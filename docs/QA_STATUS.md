@@ -42,3 +42,7 @@ The C++ application contains opt-in `--smoke` and other `--smoke-*` regression e
 - Original project `PLAN.md` and `README.md`, including owner acknowledgments for the hardware and Mute checks.
 
 These development handoffs were consulted to create this concise public-ready QA summary, rather than copied wholesale with personal workstation paths or development results.
+
+## Debian licensing revision 0.1.0-2
+
+The approved F08 handoff defines Debian revision 0.1.0-2 with GPL-3.0-or-later, SPDX headers and Debian copyright metadata. It installs ten regular files: the former eight runtime and desktop resources plus the full LICENSE and copyright documentation. The earlier F08 original report's eight-file MD5 check predates the new packaging revision. Publication of 0.1.0-2 requires independent verification of its ten-file payload and SHA-256; do not count the earlier eight-file check as proof for all ten files.

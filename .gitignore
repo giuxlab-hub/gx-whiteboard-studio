@@ -1,4 +1,26 @@
-# Build, package staging and generated output
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Generated artifacts; publish verified Debian packages as GitHub Release assets.
+build/
+build-*/
+package-root/
+debian/
+results/
+dist/
+*.deb
+*.log
+*.mkv
+*.mp4
+*.gxwp
+*.gxwb
+*.gxwp.bak
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+.idea/
+.vscode/
+
+# Additional GitHub source safety exclusions
 /build/
 /build-asan/
 /build-*/
@@ -11,13 +33,7 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 Testing/
-# Personal whiteboards, media and XDG state
-*.gxwb
-*.gxwp
 *.gxwb.bak
-*.gxwp.bak
-*.mkv
-*.mp4
 *.mov
 *.wav
 *.aac
@@ -32,7 +48,6 @@ Testing/
 !assets/f05_test_320x240.h264
 !assets/f07_3_noise_stress.png
 *.recording-report.json
-# Local credentials, caches, editing artifacts
 .env
 .env.*
 *.pem
@@ -42,13 +57,8 @@ Testing/
 *.sqlite
 *.sqlite3
 *.db
-*.log
 *.tmp
 *.bak
 *~
 .DS_Store
-__pycache__/
-*.pyc
 .pytest_cache/
-.idea/
-.vscode/

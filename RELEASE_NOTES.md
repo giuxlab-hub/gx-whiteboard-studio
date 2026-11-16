@@ -1,8 +1,8 @@
-# GX Whiteboard Studio 0.1.0 — Release Candidate 1
+# GX Whiteboard Studio 0.1.0 — Release Candidate 2
 
-**Tag:** `v0.1.0-rc1`
+**Tag:** `v0.1.0-rc2`
 **Platform:** Debian 13 amd64, XFCE/X11
-**Debian asset:** `gx-whiteboard-studio_0.1.0-1_amd64.deb`
+**Debian asset:** `gx-whiteboard-studio_0.1.0-2_amd64.deb`
 
 GX Whiteboard Studio is an independent C++17/Qt6 desktop whiteboard with audiovisual recording.
 
@@ -20,7 +20,7 @@ GX Whiteboard Studio is an independent C++17/Qt6 desktop whiteboard with audiovi
 Download the attached original, verified Debian package and run:
 
 ```bash
-sudo apt install ./gx-whiteboard-studio_0.1.0-1_amd64.deb
+sudo apt install ./gx-whiteboard-studio_0.1.0-2_amd64.deb
 ```
 
 Launch: `gx-whiteboard-studio` or the Graphics menu. Uninstall: `sudo apt remove gx-whiteboard-studio`. User projects, recordings and XDG settings are not deleted by uninstall.
@@ -29,7 +29,7 @@ The package declares dependencies on Qt6 Core/GUI/Network/Widgets, FFmpeg, Pulse
 
 ## Verification
 
-The approved F08 development report records a successful Release build, 17 regression suites, four ASAN/UBSAN suites, APT installation simulation, and verification of all eight files extracted from the `.deb`. The owner also tested real Wacom input, the webcam microphone, Mute and actual Thunar drag-and-drop.
+The approved F08 development report records a successful Release build, 17 regression suites, four ASAN/UBSAN suites, APT installation simulation, and verification of the eight installed files in the earlier package revision. The updated 0.1.0-2 Debian package has ten installed files; their integrity is checked separately during this release publication. The owner also tested real Wacom input, the webcam microphone, Mute and actual Thunar drag-and-drop.
 
 ## Release candidate limitations
 
@@ -42,7 +42,7 @@ The global Debian installation was not executed in F08 testing; only simulated A
 **Original Debian SHA-256:**
 
 ```text
-dc8d5724f42cd724c497b0262610d90462504e0310ddd1690b87a7efc004a7d4
+81f4201acd354398ce748655f50feead9a94ea21b3982c47a5c8b1d89730d3c5
 ```
 
 ## Sources and documentation
@@ -52,4 +52,6 @@ dc8d5724f42cd724c497b0262610d90462504e0310ddd1690b87a7efc004a7d4
 - [Manuale in italiano](docs/manual_it.html)
 - [QA status](docs/QA_STATUS.md)
 
-**License:** GNU General Public License version 3 (GPL-3.0-only), as confirmed by the owner. Full license text: [LICENSE](LICENSE).
+**License:** GNU General Public License version 3 (GPL-3.0-or-later), as confirmed by the owner. Full license text: [LICENSE](LICENSE).
+
+Licensing update in Debian 0.1.0-2: the owner confirmed GPL-3.0-or-later. All current source/resource SPDX declarations, the full GPL text and the Debian copyright metadata are included. The application remains version 0.1.0. This candidate supersedes the earlier Debian revision.

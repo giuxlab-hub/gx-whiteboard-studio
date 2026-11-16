@@ -1,6 +1,6 @@
 # GX Whiteboard Studio
 
-**Versione 0.1.0 — release candidate `v0.1.0-rc1`**
+**Versione 0.1.0 — release candidate `v0.1.0-rc2`**
 Applicazione autonoma C++17/Qt6 per Debian 13 amd64 e XFCE/X11, indipendente da GX-TXT.
 
 ## Funzioni
@@ -11,10 +11,10 @@ Webcam USB, sorgenti IP sperimentali RTSP/HTTP-MJPEG, scene multiple, progetti `
 
 ## Pacchetto Debian
 
-Scarica il pacchetto dalla [release candidate 0.1.0-rc1](https://github.com/giuxlab-hub/gx-whiteboard-studio/releases/tag/v0.1.0-rc1).
+Scarica il pacchetto dalla [release candidate 0.1.0-rc1](https://github.com/giuxlab-hub/gx-whiteboard-studio/releases/tag/v0.1.0-rc2).
 
 ```bash
-sudo apt install ./gx-whiteboard-studio_0.1.0-1_amd64.deb
+sudo apt install ./gx-whiteboard-studio_0.1.0-2_amd64.deb
 gx-whiteboard-studio
 ```
 
@@ -29,7 +29,7 @@ I progetti, i video e le impostazioni XDG non vengono eliminati.
 Il pacchetto originale F08 ha SHA-256:
 
 ```text
-dc8d5724f42cd724c497b0262610d90462504e0310ddd1690b87a7efc004a7d4
+81f4201acd354398ce748655f50feead9a94ea21b3982c47a5c8b1d89730d3c5
 ```
 
 ## Compilare i sorgenti
@@ -66,4 +66,6 @@ Manuali: [italiano](docs/manual_it.html) · [English](docs/manual_en.html). Dett
 
 La F08 ha superato build Release, 17 regressioni, quattro suite ASAN/UBSAN, simulazione APT e verifica dei file estratti. Il proprietario ha eseguito prove fisiche su Wacom, microfono della webcam, Mute e trascinamento da Thunar. L'installazione Debian globale non è stata eseguita.
 
-**Licenza:** GX Whiteboard Studio è pubblicato con **GNU General Public License versione 3 (GPL-3.0-only)**, come stabilito dal proprietario. Il testo completo è in [LICENSE](LICENSE). Il repository è pubblico.
+**Licenza:** GX Whiteboard Studio è pubblicato con **GNU General Public License versione 3 (GPL-3.0-or-later)**, come stabilito dal proprietario. Il testo completo è in [LICENSE](LICENSE). Il repository è pubblico.
+
+La revisione Debian 0.1.0-2 include la licenza GPL-3.0-or-later stabilita dal proprietario, intestazioni SPDX, copyright Debian e il testo integrale della licenza nella documentazione installata. Aggiorna 0.1.0-1; la versione applicativa rimane 0.1.0.
