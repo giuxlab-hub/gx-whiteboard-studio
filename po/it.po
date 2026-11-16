@@ -1057,3 +1057,39 @@ msgstr "Impossibile aprire il progetto."
 
 msgid "Unsupported document extension."
 msgstr "Estensione del documento non supportata."
+
+msgid "Remove from library"
+msgstr "Rimuovi dalla libreria"
+
+msgid "The original file will not be deleted."
+msgstr "Il file originale non verrà eliminato."
+
+msgid "Image removed from library."
+msgstr "Immagine rimossa dalla libreria."
+
+msgid "Guides"
+msgstr "Guide"
+
+msgid "Complete manual (Italian)"
+msgstr "Manuale completo (italiano)"
+
+msgid "Complete manual (English)"
+msgstr "Manuale completo (inglese)"
+
+msgid "GX Whiteboard Studio — Version 0.1.1"
+msgstr "GX Whiteboard Studio — Versione 0.1.1"
+
+msgid "Author: GiuxLab"
+msgstr "Autore: GiuxLab"
+
+msgid "Copyright (C) 2026 GiuxLab"
+msgstr "Copyright (C) 2026 GiuxLab"
+
+msgid "License: GNU GPL version 3 or later (GPL-3.0-or-later)"
+msgstr "Licenza: GNU GPL versione 3 o successiva (GPL-3.0-or-later)"
+
+msgid "About GX Whiteboard Studio"
+msgstr "Informazioni su GX Whiteboard Studio"
+
+msgid "GX Whiteboard Studio 0.1.1 — project and recording workspace."
+msgstr "GX Whiteboard Studio 0.1.1 — progetti e registrazioni."

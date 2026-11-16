@@ -1,6 +1,6 @@
 # GX Whiteboard Studio
 
-**Version 0.1.0 — release candidate `v0.1.0-rc2`**
+**Version 0.1.1 — GitHub release `v0.1.1`**
 Native C++17 / Qt6 desktop whiteboard and audiovisual recorder for **Debian 13 (amd64), XFCE/X11**.
 
 GX Whiteboard Studio is an independent GiuxLab application, separate from GX-TXT.
@@ -13,21 +13,27 @@ GX Whiteboard Studio is an independent GiuxLab application, separate from GX-TXT
 - **FFmpeg recording:** canvas-only H.264 video via `libx264` or supported NVIDIA `h264_nvenc`; selectable PulseAudio microphone with AAC sound and application Mute; MKV, optional MP4 remux and local diagnostic recording reports.
 - **Languages and desktop:** GNU gettext English and Italian, local HTML manuals, Debian desktop integration, SVG icon and MIME associations.
 
+## New in version 0.1.1
+
+- **Manage the Images library:** right-click a thumbnail and choose **Remove from library**. This removes only the gallery reference, not the original file or any embedded copies in saved scenes. The change is persisted with QSettings in the user's XDG configuration and remains effective after restart; you can add the image again later.
+- **Complete offline guides:** **Help → Guides → Complete manual (Italian)** or **Complete manual (English)**. Both HTML manuals now include a table of contents and 13 chapters.
+- **About:** version **0.1.1**, author **GiuxLab**, copyright **(C) 2026 GiuxLab**, license **GPL-3.0-or-later**.
+
 ## Install the Debian package
 
-Download `gx-whiteboard-studio_0.1.0-2_amd64.deb` from the [0.1.0-rc1 GitHub release](https://github.com/giuxlab-hub/gx-whiteboard-studio/releases/tag/v0.1.0-rc2), then run:
+Download `gx-whiteboard-studio_0.1.1-1_amd64.deb` from the [v0.1.1 GitHub release](https://github.com/giuxlab-hub/gx-whiteboard-studio/releases/tag/v0.1.1), then run:
 
 ```bash
-sudo apt install ./gx-whiteboard-studio_0.1.0-2_amd64.deb
+sudo apt install ./gx-whiteboard-studio_0.1.1-1_amd64.deb
 gx-whiteboard-studio
 ```
 
 The application appears in the Graphics menu. Double-click `.gxwp` and `.gxwb` files in Thunar. The package contains the executable, compiled language catalogs, HTML manuals, icon, desktop file and MIME declarations. No background service is installed.
 
-**Original approved package SHA-256:**
+**Approved F08_1 Debian package SHA-256:**
 
 ```text
-81f4201acd354398ce748655f50feead9a94ea21b3982c47a5c8b1d89730d3c5
+2372e116f95c00c07be0264b6661e1930899d37550dd0e9cd3b1c870469f0a8a
 ```
 
 To uninstall:
@@ -63,7 +69,7 @@ DESTDIR="$PWD/package-root" cmake --install build
 ./tools/build_deb.sh
 ```
 
-The test package is written to `dist/`, which is ignored by Git. This operation does not install packages on the host. The GitHub release asset is the **unchanged approved F08 original**, not a rebuilt test artifact.
+The test package is written to `dist/`, which is ignored by Git. This operation does not install packages on the host. The GitHub release asset is the **unchanged approved F08_1 original**, not a rebuilt test artifact.
 
 See [Debian dependencies](docs/DEBIAN_13.md) and [QA status](docs/QA_STATUS.md).
 
@@ -82,8 +88,8 @@ Synthetic test images and a synthetic H.264 stream in `assets/` support the orig
 2. **Real IP cameras were discovered but their streams did not work.** Authentication was deliberately not investigated. Synthetic local RTSP/MJPEG tests are not evidence of working real IP cameras.
 3. Undo/Redo history is separate for each scene while the program runs, **but history is not persisted across application restarts**.
 
-F08 recorded successful Release build, 17 regression suites, four ASAN/UBSAN suites, simulated APT installation and verification of the extracted Debian package. The owner tested physical Wacom, webcam microphone, Mute and Thunar drag-and-drop. **Global Debian installation was not performed** during F08 qualification.
+F08_1 records a successful Release build, 18 regression suites, ASAN/UBSAN checks, simulated APT installation and verification of the extracted Debian package. The owner tested physical Wacom, webcam microphone, Mute and Thunar drag-and-drop. **Global Debian installation was not performed** during F08_1 qualification.
 
 **License:** GX Whiteboard Studio is released under the **GNU General Public License, version 3 (GPL-3.0-or-later)**, as specified by the owner. See [LICENSE](LICENSE) for the complete terms. This repository is public.
 
-Debian revision 0.1.0-2 includes the owner-approved GPL-3.0-or-later SPDX and copyright metadata, full license text and installed Debian copyright file. It upgrades the previous 0.1.0-1 Debian revision while the application version remains 0.1.0.
+Debian package 0.1.1-1 retains the approved GPL-3.0-or-later SPDX and copyright metadata, full license text and installed Debian copyright file. It upgrades the earlier 0.1.0 package while updating the application version to 0.1.1.

@@ -27,6 +27,7 @@
 #include <QAbstractButton>
 #include <QDragEnterEvent>
 #include <QDropEvent>
+#include <QContextMenuEvent>
 #include <QMimeData>
 #include <QUrl>
 #include <QJsonDocument>
@@ -82,7 +83,7 @@ int main(int argc, char** argv) {
     QApplication app(argc, argv);
     app.setOrganizationName("GiuxLab");
     app.setApplicationName("GXWhiteboardStudio");
-    app.setApplicationVersion("0.1.0");
+    app.setApplicationVersion("0.1.1");
     const QString iconRoot=QCoreApplication::applicationDirPath();
     QIcon appIcon=QIcon::fromTheme("gx-whiteboard-studio");
     if (appIcon.isNull()) {
@@ -99,7 +100,7 @@ int main(int argc, char** argv) {
     }
     app.setWindowIcon(appIcon);
     QCommandLineParser parser;
-    parser.setApplicationDescription("GX Whiteboard Studio — F08 Debian 13 packaging and QA");
+    parser.setApplicationDescription("GX Whiteboard Studio 0.1.1 — image library and help guides");
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addPositionalArgument("document", "Optional .gxwp project or .gxwb board to open.");
@@ -107,6 +108,7 @@ int main(int argc, char** argv) {
     parser.addOption(QCommandLineOption("smoke-cli-open", "F08 startup document and local manual integration test"));
     parser.addOption(QCommandLineOption("smoke", "Run F02 regression checks"));
     parser.addOption(QCommandLineOption("smoke-images", "Run F03 image box smoke checks"));
+    parser.addOption(QCommandLineOption("smoke-library-menu", "F08.1 right-click library removal, persistence and Help/About test"));
     parser.addOption(QCommandLineOption("smoke-camera", "F04 simulated camera end-to-end test"));
     parser.addOption(QCommandLineOption("smoke-camera-real", "F04 local USB camera acquisition test (no images saved)"));
     parser.addOption(QCommandLineOption("smoke-zmenu", "F04.3 media Z-order and right-click regression"));
@@ -161,7 +163,9 @@ int main(int argc, char** argv) {
                 if (ext=="gxwb") good &= w.sceneCountForTest()==1;
             }
             auto* manual=w.findChild<QAction*>("manualAction");
-            good &= manual!=nullptr;
+            auto* guideEnglish=w.findChild<QAction*>("manualEnAction");
+            auto* guideMenu=w.findChild<QMenu*>("guidesMenu");
+            good &= manual && guideEnglish && guideMenu;
             const QString bin=QCoreApplication::applicationDirPath();
             QStringList paths={
                 bin+"/../share/doc/gx-whiteboard-studio/manual_it.html",
@@ -173,11 +177,15 @@ int main(int argc, char** argv) {
                 paths={bin+"/../docs/manual_it.html",bin+"/../docs/manual_en.html"};
             }
             for (const auto& path:paths) good &= QFileInfo(path).isFile();
-            if (manual) {
+            if (manual && guideEnglish && guideMenu) {
                 w.setLanguage("it_IT",false);
-                good &= manual->text()=="Manuale utente";
+                good &= guideMenu->title()=="Guide" &&
+                        manual->text()=="Manuale completo (italiano)" &&
+                        guideEnglish->text()=="Manuale completo (inglese)";
                 w.setLanguage("en_US",false);
-                good &= manual->text()=="User manual";
+                good &= guideMenu->title()=="Guides" &&
+                        manual->text()=="Complete manual (Italian)" &&
+                        guideEnglish->text()=="Complete manual (English)";
             }
             qInfo().noquote() << "F08 DESKTOP FILE OPEN:"
                 << (good?"PASS":"FAIL")
@@ -195,6 +203,161 @@ int main(int argc, char** argv) {
 
 
 
+
+
+    if (parser.isSet("smoke-library-menu")) {
+        QTimer::singleShot(300,&app,[&app,&w] {
+            bool passed=true;
+            auto verify=[&passed](bool result,const QString& label) {
+                if (!result) qWarning().noquote()<<"F08.1 FAIL:"<<label;
+                passed &= result;
+            };
+            auto* library=w.findChild<QListWidget*>("imageLibrary");
+            auto* board=w.boardForTest();
+            const QString source1=QFileInfo(
+                QDir(QCoreApplication::applicationDirPath())
+                    .absoluteFilePath("../assets/f03_test_chart.png")).canonicalFilePath();
+            const QString source2=QFileInfo(
+                QDir(QCoreApplication::applicationDirPath())
+                    .absoluteFilePath("../assets/f03_test_microscope.png")).canonicalFilePath();
+            verify(library!=nullptr && library->count()==0,
+                   "empty image library at startup");
+            w.addImagePathToLibrary(source1);
+            w.addImagePathToLibrary(source2);
+            verify(library && library->count()==2,
+                   "two thumbnails loaded");
+            QString message;
+            verify(board->insertImageFromFile(source1,
+                QRectF(400,230,750,520),&message),
+                "embedded copy of source image on canvas");
+            const QByteArray originalHash=QCryptographicHash::hash(
+                [&source1] {QFile file(source1);file.open(QIODevice::ReadOnly);
+                            return file.readAll();}(),QCryptographicHash::Sha256);
+            const QByteArray originalHash2=QCryptographicHash::hash(
+                [&source2] {QFile file(source2);file.open(QIODevice::ReadOnly);
+                            return file.readAll();}(),QCryptographicHash::Sha256);
+            const auto canvasBefore=board->documentObject();
+            verify(board->imageCount()==1,
+                   "canvas contains embedded image before gallery removal");
+            w.setLanguage("it_IT",false);
+            auto* guides=w.findChild<QMenu*>("guidesMenu");
+            auto* guideIt=w.findChild<QAction*>("manualAction");
+            auto* guideEn=w.findChild<QAction*>("manualEnAction");
+            auto* about=w.findChild<QAction*>("aboutAction");
+            verify(guides && guides->title()=="Guide" &&
+                   guideIt && guideIt->text()=="Manuale completo (italiano)" &&
+                   guideEn && guideEn->text()=="Manuale completo (inglese)",
+                   "Italian Help -> Guides submenu with both language manuals");
+            verify(about && about->text()=="Informazioni",
+                   "Italian About menu name");
+            // Inspect the actual QMenu dialog without requiring a desktop
+            // browser, which would be unrelated to the application's tests.
+            QListWidgetItem* second=library?library->item(1):nullptr;
+            if (library && second) {
+                library->scrollToItem(second);
+                QApplication::processEvents();
+                const QPoint at=library->visualItemRect(second).center();
+                QTimer::singleShot(0,&app,[&passed] {
+                    auto* menu=qobject_cast<QMenu*>(QApplication::activePopupWidget());
+                    if (!menu || menu->objectName()!="libraryContextMenu") {
+                        qWarning()<<"F08.1 FAIL: right-click popup not shown";
+                        passed=false;
+                        return;
+                    }
+                    QAction* remove=nullptr;
+                    for (QAction* action:menu->actions())
+                        if (action->objectName()=="libraryRemoveAction")
+                            remove=action;
+                    if (!remove || remove->text()!="Rimuovi dalla libreria") {
+                        qWarning()<<"F08.1 FAIL: localized removal action missing";
+                        passed=false;
+                        menu->close();
+                        return;
+                    }
+                    remove->trigger();
+                    menu->close();
+                });
+                const QPoint globalAt=library->viewport()->mapToGlobal(at);
+                QContextMenuEvent context(QContextMenuEvent::Mouse,at,globalAt);
+                QApplication::sendEvent(library->viewport(),&context);
+            }
+            verify(library && library->count()==1 &&
+                   library->item(0)->data(Qt::UserRole).toString()==source1,
+                   "context click removes the second thumbnail, not prior selection");
+            QSettings diskSettings("GiuxLab","GXWhiteboardStudio");
+            diskSettings.sync();
+            verify(diskSettings.value("imageLibrary").toStringList()==
+                   QStringList{source1},"library list persisted to XDG config");
+            verify(QCryptographicHash::hash(
+                [&source2] {QFile file(source2);file.open(QIODevice::ReadOnly);
+                            return file.readAll();}(),QCryptographicHash::Sha256)==originalHash2 &&
+                   QFileInfo(source2).isFile(),
+                   "removed thumbnail preserves source image bytes and file");
+            QFile original(source1);
+            original.open(QIODevice::ReadOnly);
+            verify(QCryptographicHash::hash(original.readAll(),
+                   QCryptographicHash::Sha256)==originalHash,
+                   "embedded source file hash unchanged");
+            verify(board->imageCount()==1 &&
+                   board->documentObject()==canvasBefore,
+                   "removing library thumbnail never changes embedded canvas");
+            verify(!w.removeLibraryImageForTest(source2),
+                   "removing an already absent path has no side effects");
+            verify(w.removeLibraryImageForTest(source1),
+                   "removing the final entry succeeds");
+            verify(library->count()==0,"gallery empty after final removal");
+            verify(diskSettings.value("imageLibrary").toStringList().size()==0,
+                   "empty library list persisted to settings");
+            verify(board->imageCount()==1 &&
+                   board->documentObject()==canvasBefore,
+                   "embedded image remains after entire gallery is cleared");
+            // Re-import after removal to ensure no stale thumbnail state.
+            w.addImagePathToLibrary(source1);
+            verify(library->count()==1,"removed file may be re-added");
+            verify(w.removeLibraryImageForTest(source1),"re-imported file removable");
+            {
+                // Simulate an application restart with the same XDG settings
+                // and confirm a removed thumbnail is not reloaded.
+                StudioWindow restarted(findCatalogs(),"it_IT");
+                auto* reopenedLibrary=restarted.findChild<QListWidget*>("imageLibrary");
+                verify(reopenedLibrary && reopenedLibrary->count()==0,
+                       "new application instance restores an empty library");
+                verify(restarted.boardForTest()->imageCount()==0,
+                       "restarted application has independent empty canvas");
+            }
+
+            // Existing project has independent content and must be untouched.
+            w.setLanguage("en_US",false);
+            verify(guides->title()=="Guides" &&
+                   guideIt->text()=="Complete manual (Italian)" &&
+                   guideEn->text()=="Complete manual (English)",
+                   "English Help -> Guides localization");
+            if (about) {
+                QTimer::singleShot(0,&app,[&passed] {
+                    auto* messageBox=qobject_cast<QMessageBox*>(QApplication::activeModalWidget());
+                    if (!messageBox) {
+                        qWarning()<<"F08.1 FAIL: About dialog missing";
+                        passed=false;
+                        return;
+                    }
+                    const auto message=messageBox->text();
+                    if (!message.contains("0.1.1") ||
+                        !message.contains("GiuxLab") ||
+                        !message.contains("GPL-3.0-or-later")) {
+                        qWarning()<<"F08.1 FAIL: About metadata missing";
+                        passed=false;
+                    }
+                    messageBox->accept();
+                });
+                about->trigger();
+            }
+            qInfo().noquote()<<"F08.1 LIBRARY CONTEXT AND HELP:"
+                <<(passed?"PASS":"FAIL")
+                <<"| right-click action, XDG persistence, original files preserved,"
+                <<" embedded canvas untouched, re-add, bilingual Guides, About";
+            app.exit(passed?0:2);
+        });
+    }
 
     if (parser.isSet("smoke-autosave")) {
         QTimer::singleShot(300,&app,[&app,&w] {

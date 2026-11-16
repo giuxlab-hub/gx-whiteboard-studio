@@ -1,57 +1,55 @@
-# GX Whiteboard Studio 0.1.0 — Release Candidate 2
+# GX Whiteboard Studio 0.1.1
 
-**Tag:** `v0.1.0-rc2`
+**Tag:** `v0.1.1`
+**Application version:** `0.1.1`
+**Debian version:** `0.1.1-1`
 **Platform:** Debian 13 amd64, XFCE/X11
-**Debian asset:** `gx-whiteboard-studio_0.1.0-2_amd64.deb`
+**License:** GNU GPL-3.0-or-later · Copyright (C) 2026 GiuxLab
 
-GX Whiteboard Studio is an independent C++17/Qt6 desktop whiteboard with audiovisual recording.
+## What's new
 
-## Features
+### Image library — remove a thumbnail without deleting files
 
-- Wacom pressure-sensitive pen and eraser, vector drawing, selection, shapes, Undo/Redo, pan and zoom.
-- Images inserted directly from Thunar by drag-and-drop; resizable image and USB webcam boxes with media Z-order, with drawings always above the media.
-- Experimental RTSP/HTTP-MJPEG sources and bounded private-subnet discovery.
-- Multi-scene projects (`.gxwp`) and single boards (`.gxwb`), embedded images, autosave, atomic backups and recovery.
-- FFmpeg H.264 (`libx264` or NVIDIA NVENC), selectable PulseAudio microphone with AAC and Mute, MKV output, optional MP4 conversion and diagnostic recording reports.
-- Italian and English gettext catalogs, HTML manuals, SVG icon, desktop file and MIME associations.
+Right-click a thumbnail in the **Images** gallery and choose **Remove from library** (Italian: **Rimuovi dalla libreria**). This updates the image-library list only. The original file on disk is not deleted and any images already embedded in a scene or project remain intact. The change is written to QSettings/XDG, so the removed entry stays absent after restart. It can be added to the library again at any time.
 
-## Install
+### Complete offline guides in both languages
 
-Download the attached original, verified Debian package and run:
+**Help → Guides** now offers **Complete manual (Italian)** and **Complete manual (English)**. Both HTML manuals include an index and 13 chapters, covering the interface, Wacom drawing, images and cameras, scenes, recording, backup/recovery, image-library maintenance, diagnostics and licensing.
+
+### Version and credits
+
+**Help → About** displays **GX Whiteboard Studio 0.1.1**, author **GiuxLab**, copyright **(C) 2026 GiuxLab** and license **GPL-3.0-or-later**. Updated English and Italian gettext catalogs are included.
+
+## Existing features
+
+Pressure-sensitive Wacom drawing and eraser, vector tools, selection, pan/zoom and Undo/Redo, resizable image/webcam boxes and drag-and-drop from Thunar. Multiple `.gxwp` scenes and `.gxwb` boards with autosave, backups and recovery. FFmpeg recording with H.264 `libx264`/NVIDIA NVENC, selectable PulseAudio microphone, AAC, Mute, MKV files, optional MP4 conversion and recording diagnostics. RTSP/HTTP-MJPEG network camera support remains experimental.
+
+## Debian installation or upgrade
+
+Download the **original approved** `gx-whiteboard-studio_0.1.1-1_amd64.deb` asset and run:
 
 ```bash
-sudo apt install ./gx-whiteboard-studio_0.1.0-2_amd64.deb
+sudo apt install ./gx-whiteboard-studio_0.1.1-1_amd64.deb
 ```
 
-Launch: `gx-whiteboard-studio` or the Graphics menu. Uninstall: `sudo apt remove gx-whiteboard-studio`. User projects, recordings and XDG settings are not deleted by uninstall.
+To run: `gx-whiteboard-studio`. To remove: `sudo apt remove gx-whiteboard-studio`. Existing user projects and recordings are not deleted.
 
-The package declares dependencies on Qt6 Core/GUI/Network/Widgets, FFmpeg, PulseAudio utilities, Qt6 QPA and SVG plugins, libxcb-cursor0, and the Debian C/C++ runtimes. Refer to [docs/DEBIAN_13.md](docs/DEBIAN_13.md) for exact versions and CMake build instructions.
+The Debian package declares Qt6 Core/GUI/Widgets/Network, FFmpeg, PulseAudio utilities, Qt6 QPA/SVG plugins, libxcb-cursor0 and the required C/C++ runtimes. See [Debian dependencies](https://github.com/giuxlab-hub/gx-whiteboard-studio/blob/v0.1.1/docs/DEBIAN_13.md).
 
 ## Verification
 
-The approved F08 development report records a successful Release build, 17 regression suites, four ASAN/UBSAN suites, APT installation simulation, and verification of the eight installed files in the earlier package revision. The updated 0.1.0-2 Debian package has ten installed files; their integrity is checked separately during this release publication. The owner also tested real Wacom input, the webcam microphone, Mute and actual Thunar drag-and-drop.
+The approved F08_1 handoff reports **18 regression suites**, Qt context-menu testing, unchanged image-file SHA-256 and canvas content, QSettings persistence across restart, re-addition of removed images, both 13-chapter manuals, ASAN/UBSAN checks, Debian package checks and a successful simulated APT upgrade. The global 0.1.1 package installation was not performed in that validation. The GitHub publishing checkout and release asset have separate source/byte-integrity checks.
 
-## Release candidate limitations
+## Known limitations
 
-1. A **continuous real-world 30-minute recording has NOT been tested**. This is deferred to practical use and is required before calling the release fully endurance-validated.
-2. **Real IP-camera streaming did not work** after network discovery. Authentication was deliberately not investigated. Local synthetic RTSP/MJPEG tests succeeded but do not establish real-camera interoperability.
-3. **Per-scene Undo/Redo history is not saved across application restarts**. Scene content and projects can be saved, but their edit-command history does not persist.
+- **Continuous real-world 30-minute recording has not yet been validated.** It remains for practical-use testing.
+- **Authenticated IP-camera streaming remains unvalidated.** Detection alone does not establish streaming compatibility.
+- **Per-scene Undo/Redo history is not persisted after application restart.** Saved scene contents are unaffected.
 
-The global Debian installation was not executed in F08 testing; only simulated APT installation and isolated package extraction were performed. No new endurance or live IP-camera validation is claimed here.
+## Original Debian package checksum
 
-**Original Debian SHA-256:**
+**SHA-256:**
 
-```text
-81f4201acd354398ce748655f50feead9a94ea21b3982c47a5c8b1d89730d3c5
-```
+`2372e116f95c00c07be0264b6661e1930899d37550dd0e9cd3b1c870469f0a8a`
 
-## Sources and documentation
-
-- [README and build instructions](README.md)
-- [Manual in English](docs/manual_en.html)
-- [Manuale in italiano](docs/manual_it.html)
-- [QA status](docs/QA_STATUS.md)
-
-**License:** GNU General Public License version 3 (GPL-3.0-or-later), as confirmed by the owner. Full license text: [LICENSE](LICENSE).
-
-Licensing update in Debian 0.1.0-2: the owner confirmed GPL-3.0-or-later. All current source/resource SPDX declarations, the full GPL text and the Debian copyright metadata are included. The application remains version 0.1.0. This candidate supersedes the earlier Debian revision.
+The previous `0.1.0` releases and packages remain in their historical GitHub releases; the `v0.1.1` release carries **only the new 0.1.1-1 Debian asset and its SHA256SUMS**.

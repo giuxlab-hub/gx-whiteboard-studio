@@ -1,48 +1,39 @@
-# GX Whiteboard Studio 0.1.0-rc1 — QA status
+# GX Whiteboard Studio 0.1.1 — QA status
 
-This report summarizes the actual F08 development and owner-test evidence. It does not turn an unperformed test into a pass.
+Licensing: **GPL-3.0-or-later**, Copyright (C) 2026 GiuxLab.
 
-## Accepted F08 checks
+This is a source-grounded summary of the approved **F08_1/REPORT_F08_1.md**, **F08_1/GITHUB_RELEASE_HANDOFF.md** and **F08_1/TEST_UTENTE_IT.md**. Earlier test campaigns are not silently reclassified.
 
-- **Release build** on Debian 13.
-- **17 Release regression suites** including drawing, image composition, synthetic USB/IP cameras, media Z-order, CPU and NVIDIA H.264/AAC test recordings, recording UI in English and Italian, image drag-and-drop while recording, scenes, autosave, independent per-scene Undo/Redo, synthetic scene changes during recording, FFmpeg failure handling, backup and recovery, and a 24-scene synthetic-media stress project (~49 MB).
-- **Four ASAN/UBSAN suites:** scenes, scene Undo, recording resilience and image drag-and-drop during recording.
-- **APT installation simulation**, including dependency resolution. An actual global `apt install` on the development workstation was intentionally not performed.
-- **Extraction of the original Debian package** into an isolated folder and MD5 verification of its eight installed files.
-- **Opening `.gxwp` and `.gxwb`** through the executable extracted from the Debian package with isolated XDG settings.
-- Desktop entry, SVG, MIME declarations, gettext `.mo` catalogs, HTML manuals and Help menu checked in F08.
-- Owner-performed tests using the **real Wacom tablet**, **real webcam microphone**, **Mute** and **drag-and-drop from Thunar**. These statements come from the original owner acceptance and are not new hardware tests performed for GitHub.
+## Verified in the F08_1 release workflow
 
-The accepted binary inside the original `.deb` has been compared byte-for-byte against the approved F08 Release executable. The two compiled gettext catalogs and other installed resources also match the F08 files.
+- C++17 / Qt6 Release build on Debian 13.
+- **18 Release regression suites**, covering the established drawing, media, scene, recording, persistence, recovery and image-gallery workflows.
+- **Qt GUI context-menu tests:** the right-click action targets the thumbnail under the pointer, not another previously selected image; no removal is offered on empty gallery space.
+- **Non-destructive removal:** the original image remains on disk, with an unchanged SHA-256; an image embedded in the canvas and serialized scene state remains unchanged.
+- **Persistence and recovery:** library references are saved with QSettings/XDG, the removed entry stays absent after simulated restart with a fresh application instance, and it can be added again.
+- **Help/About:** IT/EN menu strings, About metadata, two offline complete HTML manuals with a table of contents and **13 chapters**.
+- **AddressSanitizer and UndefinedBehaviorSanitizer**, including image-box and multi-scene workflows.
+- The original **Debian 0.1.1-1 package** passed package checks and MD5 validation of its **ten installed files**.
+- An extracted executable was launched in an isolated environment, opening both `.gxwp` and `.gxwb` documents.
+- **APT upgrade simulation** succeeded; no actual system-wide upgrade was performed as part of F08_1 acceptance.
 
-## Explicitly incomplete or unsupported claims
+Historical owner checks include real Wacom pen input, webcam microphone, Mute and drag-and-drop from Thunar. These were performed on prior approved stages; they are not represented as repeated physical-device tests on F08_1.
 
-1. **Continuous real-world 30-minute recording: NOT TESTED.** Short H.264/AAC or NVENC tests do not prove uninterrupted long-duration operation.
-2. **Real network-camera streaming: NOT WORKING in the owner's practical trials.** Local IP discovery succeeded; authentication was not investigated by owner choice. The local synthetic RTSP/MJPEG tests cannot validate the real cameras.
-3. **Undo/Redo history is not persisted across program restarts.** History is separate for each scene only during the running session.
-4. **Global Debian installation: NOT PERFORMED** as part of F08 testing; an APT simulation and isolated package extraction were used.
-5. No assertion of general Wayland, other distributions, other architectures or exhaustive external-camera compatibility.
+## Publication integrity checks
 
-## Synthetic regression fixtures included with this source release
+The GitHub source is copied from the approved F08_1 tree and checked byte-for-byte before committing. Published `.deb` bytes must equal the accepted F08_1 package, whose SHA-256 is:
 
-The original development reports identify these files as **synthetic**:
+`2372e116f95c00c07be0264b6661e1930899d37550dd0e9cd3b1c870469f0a8a`
 
-- `assets/f03_test_chart.png` and `assets/f03_test_microscope.png` — synthetic F03 test images.
-- `assets/f05_test_320x240.h264` — synthetic F05 RTSP/H.264 test bitstream.
-- `assets/f07_3_noise_stress.png` — synthetic F07.3 high-entropy stress image.
+The package must be attached to GitHub Release `v0.1.1`, **not** committed to the Git repository. Locally rebuilt test packages have their own archive metadata and are never substituted for the approved file.
 
-The image fixtures do not carry captured real-camera content. Synthetic MJPEG and RTSP test servers live in `tools/test_mjpeg_server.py` and `tools/test_rtsp_server.py` and bind to `127.0.0.1`. No personal screenshots, recordings or camera credentials have been placed in the source tree.
+## Known limits and test boundaries
 
-The C++ application contains opt-in `--smoke` and other `--smoke-*` regression entry points. These can create files: use a separate checkout with isolated XDG settings and an untracked `results/` directory. The GitHub publication workflow does not claim that every F08 hardware and sanitizer case was rerun.
+1. **Continuous real-world 30-minute recording remains unverified**; the owner will test this during practical use.
+2. **Authenticated real-world IP-camera streams remain unvalidated.** Discovery and synthetic network tests are not evidence of successfully receiving those streams.
+3. **Undo/Redo history is not persisted across application restarts**, although scene contents are saved.
+4. The global installation of the new package was not performed during the F08_1 release checks; APT upgrade was simulated.
 
-## Original documents used
+## Synthetic regression materials
 
-- F08 release report: `REPORT_F08.md` in the owner's approved F08 working directory.
-- F08 installation/test handoff: `TEST_UTENTE_IT.md`.
-- Original project `PLAN.md` and `README.md`, including owner acknowledgments for the hardware and Mute checks.
-
-These development handoffs were consulted to create this concise public-ready QA summary, rather than copied wholesale with personal workstation paths or development results.
-
-## Debian licensing revision 0.1.0-2
-
-The approved F08 handoff defines Debian revision 0.1.0-2 with GPL-3.0-or-later, SPDX headers and Debian copyright metadata. It installs ten regular files: the former eight runtime and desktop resources plus the full LICENSE and copyright documentation. The earlier F08 original report's eight-file MD5 check predates the new packaging revision. Publication of 0.1.0-2 requires independent verification of its ten-file payload and SHA-256; do not count the earlier eight-file check as proof for all ten files.
+The repository carries only four previously verified synthetic image/video fixtures used by C++ smoke checks, plus the localhost test servers. It does not include personal recordings, screenshots, webcam captures, real camera credentials, user projects or user XDG settings.

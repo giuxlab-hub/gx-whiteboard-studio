@@ -7,4 +7,4 @@ Standards-Version: 4.7.0
 Package: gx-whiteboard-studio
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Native pen-enabled whiteboard and video recorder
+Description: Native Wacom whiteboard with recording

@@ -532,6 +532,16 @@ void StudioWindow::buildUI() {
             &StudioWindow::startImagePlacementFromList);
     connect(imageList_, &QListWidget::itemDoubleClicked, this,
             [this](QListWidgetItem*) { startImagePlacementFromList(); });
+    // QListWidget owns a viewport: the position is expressed in viewport
+    // coordinates. Operate on the thumbnail under the pointer, never on a
+    // different thumbnail selected previously.
+    // QAbstractScrollArea handles the viewport context event and relays
+    // the customContextMenuRequested signal from the scroll-area itself.
+    imageList_->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(imageList_, &QWidget::customContextMenuRequested,
+            this, [this](const QPoint& viewportPos) {
+        showLibraryContextMenu(viewportPos);
+    });
     connect(imageAspectBox_, &QCheckBox::toggled, this,
             [this](bool checked) { board_->setSelectedImageAspectLocked(checked); });
     connect(imageFitBox_, QOverload<int>::of(&QComboBox::currentIndexChanged),
@@ -762,35 +772,24 @@ void StudioWindow::buildUI() {
     fitAction_ = viewMenu_->addAction(QString());
     fitAction_->setShortcut(QKeySequence("Ctrl+0"));
     connect(fitAction_, &QAction::triggered, board_, &BoardView::fitBoard);
-    manualAction_ = helpMenu_->addAction(QString());
+    guidesMenu_=helpMenu_->addMenu(QString());
+    guidesMenu_->setObjectName("guidesMenu");
+    manualAction_=guidesMenu_->addAction(QString());
     manualAction_->setObjectName("manualAction");
-    connect(manualAction_,&QAction::triggered,this,[this] {
-        const QString lang=loc_.language().startsWith("it",Qt::CaseInsensitive)
-            ? "it":"en";
-        const QString fileName="manual_"+lang+".html";
-        const QString bin=QCoreApplication::applicationDirPath();
-        const QStringList candidates={
-            bin+"/../share/doc/gx-whiteboard-studio/"+fileName,
-            bin+"/../docs/"+fileName
-        };
-        for (const QString& path:candidates) {
-            if (QFileInfo(path).isFile()) {
-                if (!QDesktopServices::openUrl(
-                        QUrl::fromLocalFile(QFileInfo(path).absoluteFilePath()))) {
-                    QMessageBox::warning(this,loc_.tr("Manual unavailable"),
-                        loc_.tr("Could not open the local manual."));
-                }
-                return;
-            }
-        }
-        QMessageBox::warning(this,loc_.tr("Manual unavailable"),
-            loc_.tr("The local manual could not be found."));
-    });
-    aboutAction_ = helpMenu_->addAction(QString());
-    connect(aboutAction_, &QAction::triggered, this, [this]() {
-        QMessageBox::information(this, "GX Whiteboard Studio",
-            loc_.tr("Version 0.1.0 — Drawing, media, scenes and FFmpeg recording.")+
-            QString("\nCopyright (C) 2026 GiuxLab\nGPL-3.0-or-later"));
+    connect(manualAction_,&QAction::triggered,this,[this] {openGuide("it");});
+    manualEnAction_=guidesMenu_->addAction(QString());
+    manualEnAction_->setObjectName("manualEnAction");
+    connect(manualEnAction_,&QAction::triggered,this,[this] {openGuide("en");});
+    helpMenu_->addSeparator();
+    aboutAction_=helpMenu_->addAction(QString());
+    aboutAction_->setObjectName("aboutAction");
+    connect(aboutAction_,&QAction::triggered,this,[this] {
+        const QString info=
+            loc_.tr("GX Whiteboard Studio — Version 0.1.1")+
+            "\n"+loc_.tr("Author: GiuxLab")+
+            "\n"+loc_.tr("Copyright (C) 2026 GiuxLab")+
+            "\n"+loc_.tr("License: GNU GPL version 3 or later (GPL-3.0-or-later)");
+        QMessageBox::information(this,loc_.tr("About GX Whiteboard Studio"),info);
     });
 
     toolbar_ = new QToolBar(this);
@@ -1120,7 +1119,7 @@ void StudioWindow::updateLanguage() {
     const char *sections[] = {"Images", "Cameras", "Scenes", "Projects"};
     for (int i = 0; i < 4; ++i) sections_[i]->setText(t(sections[i]));
     refreshSection();
-    sidebarFooter_->setText(t("GX Whiteboard Studio 0.1.0 — project and recording workspace."));
+    sidebarFooter_->setText(t("GX Whiteboard Studio 0.1.1 — project and recording workspace."));
     fileMenu_->setTitle(t("File"));
     sceneAddButton_->setText(t("New scene"));
     sceneDuplicateButton_->setText(t("Duplicate scene"));
@@ -1227,7 +1226,9 @@ void StudioWindow::updateLanguage() {
     zoomInAction_->setText(t("Zoom +"));
     zoomInAction_->setToolTip(t("Zoom in"));
     zoomInAction_->setStatusTip(t("Zoom in"));
-    manualAction_->setText(t("User manual"));
+    guidesMenu_->setTitle(t("Guides"));
+    manualAction_->setText(t("Complete manual (Italian)"));
+    manualEnAction_->setText(t("Complete manual (English)"));
     aboutAction_->setText(t("About"));
     recordAction_->setText(t("REC"));
     recordAction_->setToolTip(t("Start or stop video recording (Ctrl+Shift+R)"));
@@ -1955,10 +1956,67 @@ void StudioWindow::addImageFiles() {
         QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
         loc_.tr("Images (*.png *.jpg *.jpeg *.webp)"));
     for (const QString& path : files) addImagePathToLibrary(path);
+    persistImageLibrary();
+}
+void StudioWindow::persistImageLibrary() {
     QStringList library;
     for (int i=0; i<imageList_->count(); ++i)
         library << imageList_->item(i)->data(Qt::UserRole).toString();
     settings_.setValue("imageLibrary",library);
+    settings_.sync();
+}
+bool StudioWindow::removeLibraryImage(const QString& filePath) {
+    // Library-only operation. Never delete a file from disk or alter
+    // images already embedded in any project scene.
+    if (!imageList_ || filePath.isEmpty()) return false;
+    for (int i=0;i<imageList_->count();++i) {
+        QListWidgetItem* item=imageList_->item(i);
+        if (item->data(Qt::UserRole).toString()!=filePath) continue;
+        const bool wasCurrent=imageList_->currentItem()==item;
+        delete imageList_->takeItem(i);
+        if (wasCurrent && imageList_->count()>0)
+            imageList_->setCurrentRow(qMin(i,imageList_->count()-1));
+        persistImageLibrary();
+        statusBar()->showMessage(loc_.tr("Image removed from library."),4000);
+        return true;
+    }
+    return false;
+}
+void StudioWindow::showLibraryContextMenu(const QPoint& viewportPos) {
+    if (!imageList_) return;
+    QListWidgetItem* item=imageList_->itemAt(viewportPos);
+    if (!item) return; // No menu on gallery empty space.
+    const QString path=item->data(Qt::UserRole).toString();
+    if (path.isEmpty()) return;
+    imageList_->setCurrentItem(item);
+    QMenu menu(this);
+    menu.setObjectName("libraryContextMenu");
+    QAction* remove=menu.addAction(loc_.tr("Remove from library"));
+    remove->setObjectName("libraryRemoveAction");
+    remove->setToolTip(loc_.tr("The original file will not be deleted."));
+    connect(remove,&QAction::triggered,this,[this,path] {
+        removeLibraryImage(path);
+    });
+    menu.exec(imageList_->viewport()->mapToGlobal(viewportPos));
+}
+void StudioWindow::openGuide(const QString& language) {
+    const QString normalized=language=="it"?"it":"en";
+    const QString filename="manual_"+normalized+".html";
+    const QString bin=QCoreApplication::applicationDirPath();
+    const QStringList candidates={
+        bin+"/../share/doc/gx-whiteboard-studio/"+filename,
+        bin+"/../docs/"+filename
+    };
+    for (const QString& path:candidates) {
+        const QFileInfo file(path);
+        if (!file.isFile()) continue;
+        if (!QDesktopServices::openUrl(QUrl::fromLocalFile(file.absoluteFilePath())))
+            QMessageBox::warning(this,loc_.tr("Manual unavailable"),
+                loc_.tr("Could not open the local manual."));
+        return;
+    }
+    QMessageBox::warning(this,loc_.tr("Manual unavailable"),
+        loc_.tr("The local manual could not be found."));
 }
 void StudioWindow::startImagePlacementFromList() {
     auto* item=imageList_->currentItem();

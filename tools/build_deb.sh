@@ -4,10 +4,24 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 STAGE="$ROOT/package-root"
-OUT="$ROOT/dist/gx-whiteboard-studio_0.1.0-2_amd64.deb"
+OUT="$ROOT/dist/gx-whiteboard-studio_0.1.1-1_amd64.deb"
 BIN="$STAGE/usr/bin/gx-whiteboard-studio"
 test -x "$BIN" || { printf 'Missing staged executable. Run cmake --install first.\n' >&2;exit 1; }
-mkdir -p "$STAGE/DEBIAN" "$ROOT/dist"
+mkdir -p "$STAGE/DEBIAN" "$ROOT/dist" "$ROOT/debian"
+# dpkg-shlibdeps needs a Debian control descriptor even when building
+# the binary package with dpkg-deb rather than debhelper.
+cat > "$ROOT/debian/control" <<'DEB_CONTROL'
+Source: gx-whiteboard-studio
+Section: graphics
+Priority: optional
+Maintainer: GiuxLab
+Standards-Version: 4.7.0
+
+Package: gx-whiteboard-studio
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Native Wacom whiteboard with recording
+DEB_CONTROL
 # Installed paths follow Debian permissions, and uninstall never touches
 # the user's XDG configuration, projects or recording files.
 find "$STAGE" -type d -exec chmod 755 {} +
@@ -20,7 +34,7 @@ test -n "$dynamic_deps"
 size="$(du -sk "$STAGE/usr" | cut -f1)"
 cat > "$STAGE/DEBIAN/control" <<EOF
 Package: gx-whiteboard-studio
-Version: 0.1.0-2
+Version: 0.1.1-1
 Section: graphics
 Priority: optional
 Architecture: amd64

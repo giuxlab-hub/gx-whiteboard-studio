@@ -52,6 +52,7 @@ public:
     bool defaultFullscreen() const;
     BoardView* boardForTest() const { return board_; }
     void addImagePathToLibrary(const QString& path);
+    bool removeLibraryImageForTest(const QString& path) {return removeLibraryImage(path);}
     bool startSelectedCamera(bool testPattern=false);
     void stopSelectedCamera();
     CameraSource* cameraForTest(const QString& device) const { return cameraSources_.value(device,nullptr); }
@@ -96,6 +97,10 @@ private:
     void clearDocument();
     void requestText(const QPointF& at);
     void addImageFiles();
+    void persistImageLibrary();
+    bool removeLibraryImage(const QString& filePath);
+    void showLibraryContextMenu(const QPoint& viewportPos);
+    void openGuide(const QString& language);
     void startImagePlacementFromList();
     void refreshImageControls();
     void refreshCameraDevices();
@@ -236,6 +241,8 @@ private:
     QAction* zoomOutAction_ = nullptr;
     QAction* aboutAction_ = nullptr;
     QAction* manualAction_ = nullptr;
+    QAction* manualEnAction_ = nullptr;
+    QMenu* guidesMenu_ = nullptr;
     int section_ = 0;
     bool savedSidebarBeforeFullscreen_ = true;
 };
