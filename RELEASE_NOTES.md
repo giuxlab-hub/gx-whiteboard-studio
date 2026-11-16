@@ -52,4 +52,4 @@ dc8d5724f42cd724c497b0262610d90462504e0310ddd1690b87a7efc004a7d4
 - [Manuale in italiano](docs/manual_it.html)
 - [QA status](docs/QA_STATUS.md)
 
-No project-wide software license was declared in the approved F08 materials. No license was assigned as part of GitHub preparation.
+**License:** GNU General Public License version 3 (GPL-3.0-only), as confirmed by the owner. Full license text: [LICENSE](LICENSE).

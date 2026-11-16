@@ -84,4 +84,4 @@ Synthetic test images and a synthetic H.264 stream in `assets/` support the orig
 
 F08 recorded successful Release build, 17 regression suites, four ASAN/UBSAN suites, simulated APT installation and verification of the extracted Debian package. The owner tested physical Wacom, webcam microphone, Mute and Thunar drag-and-drop. **Global Debian installation was not performed** during F08 qualification.
 
-**Licensing and visibility:** No project-wide license declaration was found in the approved F08 source or the supplied project documentation. None has been invented. The repository is initially private pending the owner's visibility and licensing decisions.
+**License:** GX Whiteboard Studio is released under the **GNU General Public License, version 3 (GPL-3.0-only)**, as specified by the owner. See [LICENSE](LICENSE) for the complete terms. This repository is public.

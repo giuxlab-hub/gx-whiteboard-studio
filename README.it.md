@@ -66,4 +66,4 @@ Manuali: [italiano](docs/manual_it.html) · [English](docs/manual_en.html). Dett
 
 La F08 ha superato build Release, 17 regressioni, quattro suite ASAN/UBSAN, simulazione APT e verifica dei file estratti. Il proprietario ha eseguito prove fisiche su Wacom, microfono della webcam, Mute e trascinamento da Thunar. L'installazione Debian globale non è stata eseguita.
 
-Non è stata trovata una licenza generale già stabilita per il codice. Nessuna licenza viene assegnata per supposizione. La visibilità del repository sarà confermata dal proprietario prima di renderlo pubblico.
+**Licenza:** GX Whiteboard Studio è pubblicato con **GNU General Public License versione 3 (GPL-3.0-only)**, come stabilito dal proprietario. Il testo completo è in [LICENSE](LICENSE). Il repository è pubblico.
