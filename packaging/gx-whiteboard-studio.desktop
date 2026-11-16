@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=GX Whiteboard Studio
+Name[it]=GX Whiteboard Studio
+GenericName=Digital Whiteboard and Recorder
+GenericName[it]=Lavagna digitale e registratore
+Comment=Draw with Wacom, annotate images and cameras, record video and voice
+Comment[it]=Disegna con Wacom, annota immagini e telecamere, registra video e voce
+Exec=gx-whiteboard-studio %f
+TryExec=gx-whiteboard-studio
+Icon=gx-whiteboard-studio
+Terminal=false
+Categories=Graphics;Qt;
+StartupNotify=true
+MimeType=application/x-gxwb-project;application/x-gxwb-board;
+Keywords=whiteboard;drawing;tablet;Wacom;recording;
+Keywords[it]=lavagna;disegno;tavoletta;Wacom;registrazione;

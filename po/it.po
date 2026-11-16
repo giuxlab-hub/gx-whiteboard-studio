@@ -1,0 +1,1057 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GX Whiteboard Studio 0.1 F01\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Whiteboard"
+msgstr "Lavagna"
+
+msgid "LIBRARY"
+msgstr "LIBRERIA"
+
+msgid "Images"
+msgstr "Immagini"
+
+msgid "Cameras"
+msgstr "Telecamere"
+
+msgid "Scenes"
+msgstr "Scene"
+
+msgid "Projects"
+msgstr "Progetti"
+
+msgid "Image library and resizable boxes are planned for F03."
+msgstr "La libreria immagini e i riquadri ridimensionabili sono previsti nella fase F03."
+
+msgid "USB webcams will be added in F04; IP streams in F05."
+msgstr "Le webcam USB saranno aggiunte nella fase F04; i flussi IP nella fase F05."
+
+msgid "Multiple pages and scenes will be implemented in F07."
+msgstr "Pagine multiple e scene saranno implementate nella fase F07."
+
+msgid "Project saving and automatic recovery will be implemented in F07."
+msgstr "Il salvataggio dei progetti e il recupero automatico saranno implementati nella fase F07."
+
+msgid "F01 — Interface preview. No drawing or video recording yet."
+msgstr "F01 — Anteprima dell'interfaccia. Disegno e registrazione video non sono ancora disponibili."
+
+msgid "File"
+msgstr "File"
+
+msgid "View"
+msgstr "Visualizza"
+
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "Quit"
+msgstr "Esci"
+
+msgid "Sidebar"
+msgstr "Barra laterale"
+
+msgid "Fullscreen"
+msgstr "Schermo intero"
+
+msgid "Fit canvas"
+msgstr "Adatta lavagna"
+
+msgid "About"
+msgstr "Informazioni"
+
+msgid "Background:"
+msgstr "Sfondo:"
+
+msgid "Language:"
+msgstr "Lingua:"
+
+msgid "White"
+msgstr "Bianco"
+
+msgid "Dark"
+msgstr "Scuro"
+
+msgid "Grid"
+msgstr "Griglia"
+
+msgid "Workspace ready"
+msgstr "Area di lavoro pronta"
+
+msgid "YOUR WHITEBOARD"
+msgstr "LA TUA LAVAGNA"
+
+msgid "Drawing tools will be available in F02."
+msgstr "Gli strumenti di disegno saranno disponibili nella fase F02."
+
+msgid "Ready."
+msgstr "Pronto."
+
+msgid "F01: interface and localization. Drawing, media boxes, and recording will be implemented in later phases."
+msgstr "F01: interfaccia e localizzazione. Il disegno, i riquadri multimediali e la registrazione saranno implementati nelle fasi successive."
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Configuration..."
+msgstr "Configurazione..."
+
+msgid "Undo"
+msgstr "Annulla"
+
+msgid "Redo"
+msgstr "Ripeti"
+
+msgid "Select"
+msgstr "Seleziona"
+
+msgid "Select all"
+msgstr "Seleziona tutto"
+
+msgid "Deselect"
+msgstr "Deseleziona"
+
+msgid "Cut"
+msgstr "Taglia"
+
+msgid "Copy"
+msgstr "Copia"
+
+msgid "Paste"
+msgstr "Incolla"
+
+msgid "Duplicate"
+msgstr "Duplica"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Not available in F01. Drawing and object editing arrive in F02/F03."
+msgstr "Non disponibile in F01. Il disegno e la modifica degli oggetti arriveranno nelle fasi F02/F03."
+
+msgid "Configuration"
+msgstr "Configurazione"
+
+msgid "Application configuration"
+msgstr "Configurazione dell'applicazione"
+
+msgid "Startup and display"
+msgstr "Avvio e visualizzazione"
+
+msgid "Windowed"
+msgstr "In finestra"
+
+msgid "Startup view:"
+msgstr "Visualizzazione all'avvio:"
+
+msgid "Default background:"
+msgstr "Sfondo predefinito:"
+
+msgid "Show sidebar at startup"
+msgstr "Mostra la barra laterale all'avvio"
+
+msgid "Language and background update when saved. Startup view takes effect next time the application opens."
+msgstr "Lingua e sfondo vengono aggiornati al salvataggio. La modalità di avvio sarà applicata alla prossima apertura."
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Configuration saved."
+msgstr "Configurazione salvata."
+
+msgid "Open board..."
+msgstr "Apri lavagna..."
+
+msgid "Save board"
+msgstr "Salva lavagna"
+
+msgid "Save board as..."
+msgstr "Salva lavagna con nome..."
+
+msgid "Export PNG..."
+msgstr "Esporta PNG..."
+
+msgid "Clear board"
+msgstr "Pulisci lavagna"
+
+msgid "Pen"
+msgstr "Penna"
+
+msgid "Highlighter"
+msgstr "Evidenziatore"
+
+msgid "Eraser"
+msgstr "Gomma"
+
+msgid "Line"
+msgstr "Linea"
+
+msgid "Arrow"
+msgstr "Freccia"
+
+msgid "Rectangle"
+msgstr "Rettangolo"
+
+msgid "Ellipse"
+msgstr "Ellisse"
+
+msgid "Text"
+msgstr "Testo"
+
+msgid "Dark blue"
+msgstr "Blu scuro"
+
+msgid "Blue"
+msgstr "Blu"
+
+msgid "Red"
+msgstr "Rosso"
+
+msgid "Green"
+msgstr "Verde"
+
+msgid "Yellow"
+msgstr "Giallo"
+
+msgid "Color:"
+msgstr "Colore:"
+
+msgid "Size:"
+msgstr "Spessore:"
+
+msgid "F02 — Draw with Wacom. Images and video are added later."
+msgstr "F02 — Disegna con la Wacom. Immagini e video verranno aggiunti nelle fasi successive."
+
+msgid "Draw here with your Wacom pen or mouse."
+msgstr "Disegna qui con la penna Wacom o con il mouse."
+
+msgid "Draw on the canvas"
+msgstr "Disegna sulla lavagna"
+
+msgid "Insert text"
+msgstr "Inserisci testo"
+
+msgid "Text:"
+msgstr "Testo:"
+
+msgid "GX Whiteboard documents (*.gxwb)"
+msgstr "Documenti GX Whiteboard (*.gxwb)"
+
+msgid "Save failed"
+msgstr "Salvataggio non riuscito"
+
+msgid "Board saved."
+msgstr "Lavagna salvata."
+
+msgid "Unsaved changes"
+msgstr "Modifiche non salvate"
+
+msgid "The board contains unsaved changes."
+msgstr "La lavagna contiene modifiche non salvate."
+
+msgid "Save the board before continuing?"
+msgstr "Vuoi salvare la lavagna prima di continuare?"
+
+msgid "Open board"
+msgstr "Apri lavagna"
+
+msgid "Open failed"
+msgstr "Apertura non riuscita"
+
+msgid "Board loaded."
+msgstr "Lavagna caricata."
+
+msgid "Export PNG"
+msgstr "Esporta PNG"
+
+msgid "PNG images (*.png)"
+msgstr "Immagini PNG (*.png)"
+
+msgid "Export failed"
+msgstr "Esportazione non riuscita"
+
+msgid "Could not write the PNG file."
+msgstr "Impossibile scrivere il file PNG."
+
+msgid "PNG exported."
+msgstr "PNG esportato."
+
+msgid "Remove all strokes? You can undo this action."
+msgstr "Eliminare tutti i tratti? Potrai annullare questa operazione."
+
+msgid "F02: pressure-sensitive drawing and vector editing. Images, cameras, and recording arrive in later phases."
+msgstr "F02: disegno sensibile alla pressione e modifica vettoriale. Immagini, telecamere e registrazione arriveranno nelle fasi successive."
+
+msgid "Drawing tools"
+msgstr "Strumenti di disegno"
+
+msgid "Show or hide the drawing tools toolbar"
+msgstr "Mostra o nascondi la barra degli strumenti di disegno"
+
+msgid "Input devices"
+msgstr "Dispositivi di input"
+
+msgid "Pan canvas with mouse:"
+msgstr "Spostamento lavagna con mouse:"
+
+msgid "Right or middle button"
+msgstr "Tasto destro o centrale"
+
+msgid "Right button"
+msgstr "Tasto destro"
+
+msgid "Middle button"
+msgstr "Tasto centrale"
+
+msgid "Disabled"
+msgstr "Disabilitato"
+
+msgid "Wacom side button:"
+msgstr "Pulsante laterale Wacom:"
+
+msgid "Pan canvas"
+msgstr "Sposta la lavagna"
+
+msgid "Temporary eraser"
+msgstr "Gomma temporanea"
+
+msgid "No special action"
+msgstr "Nessuna azione speciale"
+
+msgid "Zoom with mouse wheel"
+msgstr "Zoom con la rotellina del mouse"
+
+msgid "Export current view PNG..."
+msgstr "Esporta inquadratura corrente PNG..."
+
+msgid "Export current view PNG"
+msgstr "Esporta inquadratura corrente PNG"
+
+msgid "Zoom in"
+msgstr "Ingrandisci"
+
+msgid "Zoom out"
+msgstr "Riduci zoom"
+
+msgid "Import images, draw their placement rectangle, and resize the box with eight handles."
+msgstr "Importa immagini, disegna il rettangolo di inserimento e ridimensiona il riquadro con otto maniglie."
+
+msgid "F03 — Image boxes. USB and IP cameras are added later."
+msgstr "F03 — Riquadri immagini. Le telecamere USB e IP saranno aggiunte nelle prossime fasi."
+
+msgid "Add images..."
+msgstr "Aggiungi immagini..."
+
+msgid "Insert with pen"
+msgstr "Inserisci con la penna"
+
+msgid "Keep aspect ratio"
+msgstr "Mantieni proporzioni"
+
+msgid "Image fitting"
+msgstr "Adattamento immagine"
+
+msgid "Fit / contain"
+msgstr "Adatta / Contieni"
+
+msgid "Fill / crop"
+msgstr "Riempi / Ritaglia"
+
+msgid "Opacity"
+msgstr "Opacità"
+
+msgid "Forward"
+msgstr "Avanti"
+
+msgid "Backward"
+msgstr "Indietro"
+
+msgid "Remove image"
+msgstr "Rimuovi immagine"
+
+msgid "Selected image: "
+msgstr "Immagine selezionata: "
+
+msgid "No image selected"
+msgstr "Nessuna immagine selezionata"
+
+msgid "Add images"
+msgstr "Aggiungi immagini"
+
+msgid "Images (*.png *.jpg *.jpeg *.webp)"
+msgstr "Immagini (*.png *.jpg *.jpeg *.webp)"
+
+msgid "Image import failed"
+msgstr "Importazione immagine non riuscita"
+
+msgid "Draw a rectangle on the canvas with the pen to insert the image."
+msgstr "Disegna un rettangolo sul canvas con la penna per inserire l'immagine."
+
+msgid "F03: image library, movable and resizable image boxes. Live cameras and recording arrive later."
+msgstr "F03: libreria immagini e riquadri spostabili e ridimensionabili. Telecamere e registrazione arriveranno nelle prossime fasi."
+
+msgid "Select a PNG, JPEG or WebP image smaller than 24 MB."
+msgstr "Seleziona un'immagine PNG, JPEG o WebP di dimensioni inferiori a 24 MB."
+
+msgid "The image exceeds the 36 megapixel limit."
+msgstr "L'immagine supera il limite di 36 megapixel."
+
+msgid "Unable to decode image or dimensions too large."
+msgstr "Impossibile decodificare l'immagine, oppure dimensioni troppo grandi."
+
+msgid "Invalid image rectangle or too many images."
+msgstr "Rettangolo immagine non valido o numero eccessivo di immagini."
+
+msgid "Start a USB camera and insert its live feed in a resizable box."
+msgstr "Avvia una webcam USB e inserisci il video in diretta in un riquadro ridimensionabile."
+
+msgid "F04 — USB webcam boxes. IP streams and recording arrive later."
+msgstr "F04 — Webcam USB nel canvas. Flussi IP e registrazione saranno aggiunti in seguito."
+
+msgid "Video device"
+msgstr "Dispositivo video"
+
+msgid "Refresh cameras"
+msgstr "Aggiorna telecamere"
+
+msgid "Capture resolution"
+msgstr "Risoluzione acquisizione"
+
+msgid "Frames per second"
+msgstr "Fotogrammi al secondo"
+
+msgid "Start live feed"
+msgstr "Avvia video in diretta"
+
+msgid "Stop live feed"
+msgstr "Ferma video"
+
+msgid "Insert camera box with pen"
+msgstr "Inserisci riquadro con penna"
+
+msgid "Live feed starts only on request. Drawing and images stay available while streaming."
+msgstr "La webcam si attiva soltanto su richiesta. Puoi continuare a disegnare e usare le immagini durante lo streaming."
+
+msgid "No USB camera selected."
+msgstr "Nessuna webcam USB selezionata."
+
+msgid "Cannot start camera: "
+msgstr "Impossibile avviare la telecamera: "
+
+msgid "Draw a camera rectangle on the canvas with the pen."
+msgstr "Disegna con la penna il rettangolo per la webcam."
+
+msgid "No USB capture devices found."
+msgstr "Nessuna webcam USB disponibile."
+
+msgid "Camera stopped."
+msgstr "Webcam fermata."
+
+msgid "Live frames: "
+msgstr "Fotogrammi acquisiti: "
+
+msgid "Camera disconnected: "
+msgstr "Webcam scollegata: "
+
+msgid "Camera status: "
+msgstr "Stato webcam: "
+
+msgid "F04: USB webcam boxes and live drawing. IP cameras and recording will follow."
+msgstr "F04: webcam USB in box e disegno in diretta. Telecamere IP e registrazione seguiranno."
+
+msgid "Camera"
+msgstr "Telecamera"
+
+msgid "Refresh"
+msgstr "Aggiorna"
+
+msgid "Resolution"
+msgstr "Risoluzione"
+
+msgid "FPS"
+msgstr "FPS"
+
+msgid "Start"
+msgstr "Avvia"
+
+msgid "Stop"
+msgstr "Ferma"
+
+msgid "Insert box"
+msgstr "Inserisci box"
+
+msgid "Live feed starts only on request."
+msgstr "Il video si avvia solo su richiesta."
+
+msgid "Add"
+msgstr "Aggiungi"
+
+msgid "Insert"
+msgstr "Inserisci"
+
+msgid "Image properties"
+msgstr "Proprietà immagine"
+
+msgid "Remove"
+msgstr "Rimuovi"
+
+msgid "Contain"
+msgstr "Contieni"
+
+msgid "Crop"
+msgstr "Ritaglia"
+
+msgid "Media layers"
+msgstr "Livelli media"
+
+msgid "Bring forward"
+msgstr "Porta avanti"
+
+msgid "Send backward"
+msgstr "Porta indietro"
+
+msgid "Bring to front"
+msgstr "Porta in primo piano"
+
+msgid "Send to back"
+msgstr "Porta in fondo"
+
+msgid "IP streams (RTSP / MJPEG)"
+msgstr "Flussi IP (RTSP / MJPEG)"
+
+msgid "Unencrypted or credential-free camera URLs only. Streams connect on Start."
+msgstr "Solo indirizzi senza credenziali. La connessione inizia premendo Avvia."
+
+msgid "IP streams"
+msgstr "Flussi IP"
+
+msgid "Insert IP box"
+msgstr "Inserisci box IP"
+
+msgid "Draw the IP video rectangle with the pen"
+msgstr "Disegna con la penna il rettangolo del video IP"
+
+msgid "No IP source selected."
+msgstr "Nessuna sorgente IP selezionata."
+
+msgid "IP stream stopped."
+msgstr "Flusso IP fermato."
+
+msgid "IP frames: "
+msgstr "Fotogrammi IP: "
+
+msgid "Reconnecting (attempt "
+msgstr "Riconnessione (tentativo "
+
+msgid "IP status: "
+msgstr "Stato IP: "
+
+msgid "Select an IP stream first."
+msgstr "Seleziona prima un flusso IP."
+
+msgid "Cannot start IP stream: "
+msgstr "Impossibile avviare il flusso IP: "
+
+msgid "Invalid network stream"
+msgstr "Flusso di rete non valido"
+
+msgid "F05: USB webcams and IP streams RTSP/MJPEG. Video recording will follow in F06."
+msgstr "F05: webcam USB e flussi IP RTSP/MJPEG. La registrazione video seguirà in F06."
+
+msgid "F05 — USB and IP camera boxes. Recording is planned for F06."
+msgstr "F05 — Webcam USB e telecamere IP. La registrazione è prevista nella fase F06."
+
+msgid "Scan LAN"
+msgstr "Scansiona LAN"
+
+msgid "Scan a private LAN subnet for possible camera services"
+msgstr "Cerca possibili telecamere in una subnet LAN privata"
+
+msgid "Private or public IP addresses and DNS names are accepted. No credentials in F05."
+msgstr "Sono ammessi IP privati, pubblici e nomi DNS. In F05 non sono supportate le credenziali."
+
+msgid "Check the suggested camera path and press Add; no connection has started."
+msgstr "Verifica il percorso suggerito per la telecamera e premi Aggiungi; non è stata aperta alcuna connessione."
+
+msgid "LAN camera discovery"
+msgstr "Ricerca telecamere LAN"
+
+msgid "IPv4 subnet (CIDR):"
+msgstr "Subnet IPv4 (CIDR):"
+
+msgid "Scan"
+msgstr "Scansiona"
+
+msgid "Cancel scan"
+msgstr "Interrompi scansione"
+
+msgid "Ready. Scanning starts only when you press Scan."
+msgstr "Pronto. La scansione parte soltanto premendo Scansiona."
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Port"
+msgstr "Porta"
+
+msgid "Service"
+msgstr "Servizio"
+
+msgid "Identification"
+msgstr "Identificazione"
+
+msgid "Searches for potential RTSP/HTTP services, not confirmed cameras. The suggested /stream or / path may need editing. Public networks are not scanned, but public IP cameras can be connected manually."
+msgstr "Cerca possibili servizi RTSP/HTTP, non telecamere confermate. Potrebbe essere necessario modificare il percorso /stream o /. Non vengono scansionate reti pubbliche, ma è possibile collegarsi manualmente a telecamere con IP pubblico."
+
+msgid "Use address"
+msgstr "Usa indirizzo"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Scan canceled."
+msgstr "Scansione interrotta."
+
+msgid "Scan complete. Candidate services: %1."
+msgstr "Scansione completata. Servizi candidati: %1."
+
+msgid "Confirm LAN scan"
+msgstr "Conferma scansione LAN"
+
+msgid "Probe %1 hosts in subnet %2?\nOnly common RTSP/HTTP TCP ports. No authentication."
+msgstr "Eseguire controlli TCP su %1 host della subnet %2?\nSolo porte RTSP/HTTP comuni. Nessuna autenticazione."
+
+msgid "Scanning..."
+msgstr "Scansione in corso..."
+
+msgid "Protocol response"
+msgstr "Risposta protocollo"
+
+msgid "TCP port only"
+msgstr "Solo porta TCP"
+
+msgid "Service responded as RTSP/HTTP; this does not confirm a camera."
+msgstr "Il servizio ha risposto come RTSP/HTTP: ciò non conferma che si tratti di una telecamera."
+
+msgid "Open TCP port; camera protocol not confirmed."
+msgstr "Porta TCP aperta; protocollo della telecamera non confermato."
+
+msgid "Checks %1 / %2 — results: %3"
+msgstr "Controlli %1 / %2 — risultati: %3"
+
+msgid "Use an IPv4 subnet in CIDR form (e.g. 192.168.1.0/24)."
+msgstr "Inserisci una subnet IPv4 in formato CIDR (ad esempio 192.168.1.0/24)."
+
+msgid "Invalid IPv4 address."
+msgstr "Indirizzo IPv4 non valido."
+
+msgid "Scan range must be between /24 and /32 (maximum 256 hosts)."
+msgstr "La subnet deve avere una maschera compresa tra /24 e /32 (massimo 256 host)."
+
+msgid "Only private LAN subnets are accepted; maximum 256 hosts."
+msgstr "Sono ammesse soltanto subnet LAN private, massimo 256 host."
+
+msgid "Subnet crosses a private network boundary."
+msgstr "La subnet supera il limite di un intervallo privato."
+
+msgid "The subnet contains no addresses to scan."
+msgstr "La subnet non contiene indirizzi da verificare."
+
+msgid "A scan is already running."
+msgstr "Una scansione è già in corso."
+
+msgid "Invalid TCP port selection."
+msgstr "Selezione delle porte TCP non valida."
+
+msgid "Recording settings"
+msgstr "Impostazioni di registrazione"
+
+msgid "Video profile:"
+msgstr "Profilo video:"
+
+msgid "Video encoder:"
+msgstr "Codificatore video:"
+
+msgid "CPU — H.264 libx264"
+msgstr "CPU — H.264 libx264"
+
+msgid "NVIDIA — H.264 NVENC"
+msgstr "NVIDIA — H.264 NVENC"
+
+msgid "Browse..."
+msgstr "Sfoglia..."
+
+msgid "Choose recording file"
+msgstr "Scegli il file di registrazione"
+
+msgid "Matroska video (*.mkv)"
+msgstr "Video Matroska (*.mkv)"
+
+msgid "Output file:"
+msgstr "File di destinazione:"
+
+msgid "Also create MP4 without re-encoding"
+msgstr "Crea anche MP4 senza ricodifica"
+
+msgid "Record microphone audio"
+msgstr "Registra audio dal microfono"
+
+msgid "No microphone input found"
+msgstr "Nessun microfono disponibile"
+
+msgid "Microphone:"
+msgstr "Microfono:"
+
+msgid "Input volume:"
+msgstr "Volume di ingresso:"
+
+msgid "The microphone is accessed only after you press Start recording. No audio is saved in the editable whiteboard project."
+msgstr "Il microfono viene attivato soltanto premendo Avvia registrazione. Nessun audio viene salvato nel progetto modificabile della lavagna."
+
+msgid "Start recording"
+msgstr "Avvia registrazione"
+
+msgid "Microphone error"
+msgstr "Errore microfono"
+
+msgid "Select a microphone or disable audio recording."
+msgstr "Seleziona un microfono oppure disabilita la registrazione audio."
+
+msgid "Recording path error"
+msgstr "Percorso di registrazione non valido"
+
+msgid "Choose an existing directory and a .mkv filename."
+msgstr "Seleziona una cartella esistente e un nome file .mkv."
+
+msgid "The output file already exists. Choose another filename."
+msgstr "Il file di destinazione esiste già. Seleziona un nome diverso."
+
+msgid "Recording saved: "
+msgstr "Registrazione salvata: "
+
+msgid "Recording failed"
+msgstr "Registrazione non riuscita"
+
+msgid "Recording started."
+msgstr "Registrazione avviata."
+
+msgid "Finalizing recording..."
+msgstr "Finalizzazione della registrazione..."
+
+msgid "REC"
+msgstr "REC"
+
+msgid "Stop REC"
+msgstr "Ferma REC"
+
+msgid "Stop recording and finalize MKV"
+msgstr "Ferma la registrazione e finalizza il file MKV"
+
+msgid "Start or stop video recording (Ctrl+Shift+R)"
+msgstr "Avvia o ferma la registrazione video (Ctrl+Shift+R)"
+
+msgid "Mute"
+msgstr "Silenzia"
+
+msgid "Mute only the recording application microphone"
+msgstr "Silenzia soltanto il microfono acquisito dall'applicazione"
+
+msgid "Frames queued: "
+msgstr "Fotogrammi inviati: "
+
+msgid "Dropped: "
+msgstr "Scartati: "
+
+msgid "Microphone input level"
+msgstr "Livello ingresso microfono"
+
+msgid "Finalizing..."
+msgstr "Finalizzazione..."
+
+msgid "Recording in progress"
+msgstr "Registrazione in corso"
+
+msgid "Stop recording and wait for finalization before closing."
+msgstr "Ferma la registrazione e attendi il completamento prima di chiudere."
+
+msgid "F06 — Canvas recording with optional microphone audio."
+msgstr "F06 — Registrazione della lavagna con audio microfono selezionabile."
+
+msgid "F06: video recording with FFmpeg and selectable Linux microphone."
+msgstr "F06: registrazione video con FFmpeg e microfono Linux selezionabile."
+
+msgid "Recording is already active."
+msgstr "Registrazione già in corso."
+
+msgid "FFmpeg executable not found."
+msgstr "Eseguibile FFmpeg non trovato."
+
+msgid "Invalid recording profile or renderer."
+msgstr "Profilo di registrazione o renderer non valido."
+
+msgid "Select real microphone or synthetic audio, not both."
+msgstr "Seleziona un microfono reale oppure audio sintetico, non entrambi."
+
+msgid "Select a PulseAudio microphone first."
+msgstr "Seleziona prima un microfono PulseAudio."
+
+msgid "Choose an unused .mkv filename in an existing directory."
+msgstr "Scegli un file .mkv non ancora esistente in una cartella valida."
+
+msgid "Output storage is read-only or has less than 150 MB available."
+msgstr "Spazio insufficiente (meno di 150 MB) oppure supporto di sola lettura."
+
+msgid "The canvas renderer returned an invalid frame."
+msgstr "Il renderer della lavagna ha restituito un fotogramma non valido."
+
+msgid "Unexpected image stride from canvas renderer."
+msgstr "Formato dei pixel del canvas inatteso."
+
+msgid "FFmpeg video pipe could not accept a complete frame."
+msgstr "FFmpeg non ha accettato un fotogramma video completo."
+
+msgid "Microphone is not recording."
+msgstr "Il microfono non è in registrazione."
+
+msgid "pactl executable not found."
+msgstr "Eseguibile pactl non trovato."
+
+msgid "Cannot read PulseAudio capture streams."
+msgstr "Impossibile leggere i flussi di acquisizione PulseAudio."
+
+msgid "FFmpeg microphone source output not found yet."
+msgstr "Flusso microfono di FFmpeg non ancora disponibile."
+
+msgid "Unable to control the application microphone stream."
+msgstr "Impossibile controllare il flusso microfono dell'applicazione."
+
+msgid "STOP REC"
+msgstr "STOP REC"
+
+msgid "MIC MUTED"
+msgstr "MIC SILENZIATO"
+
+msgid "Images inserted from file manager: "
+msgstr "Immagini inserite dal file manager: "
+
+msgid "Cannot insert dragged image: "
+msgstr "Impossibile inserire l'immagine trascinata: "
+
+msgid "New scene"
+msgstr "Nuova scena"
+
+msgid "Duplicate scene"
+msgstr "Duplica scena"
+
+msgid "Rename"
+msgstr "Rinomina"
+
+msgid "Delete scene"
+msgstr "Elimina scena"
+
+msgid "New project"
+msgstr "Nuovo progetto"
+
+msgid "Open project..."
+msgstr "Apri progetto..."
+
+msgid "Save project"
+msgstr "Salva progetto"
+
+msgid "Save project as..."
+msgstr "Salva progetto con nome..."
+
+msgid "GX Whiteboard projects (*.gxwp)"
+msgstr "Progetti GX Whiteboard (*.gxwp)"
+
+msgid "Project: "
+msgstr "Progetto: "
+
+msgid "Scenes: "
+msgstr "Scene: "
+
+msgid "File: "
+msgstr "File: "
+
+msgid "Changes: "
+msgstr "Modifiche: "
+
+msgid "Not saved"
+msgstr "Non salvato"
+
+msgid "Saved"
+msgstr "Salvato"
+
+msgid "Recovery checkpoint: "
+msgstr "Recupero automatico: "
+
+msgid "Available"
+msgstr "Disponibile"
+
+msgid "None yet"
+msgstr "Non presente"
+
+msgid "Cannot switch scene: "
+msgstr "Impossibile cambiare scena: "
+
+msgid "Scene: "
+msgstr "Scena: "
+
+msgid "Cannot add scene: "
+msgstr "Impossibile aggiungere la scena: "
+
+msgid "Cannot duplicate scene: "
+msgstr "Impossibile duplicare la scena: "
+
+msgid "Rename scene"
+msgstr "Rinomina scena"
+
+msgid "Scene title:"
+msgstr "Titolo della scena:"
+
+msgid "Invalid scene title."
+msgstr "Titolo della scena non valido."
+
+msgid "Delete the selected scene? Other scenes will be kept."
+msgstr "Eliminare la scena selezionata? Le altre scene saranno conservate."
+
+msgid "Cannot remove scene: "
+msgstr "Impossibile rimuovere la scena: "
+
+msgid "Project save failed"
+msgstr "Salvataggio progetto non riuscito"
+
+msgid "Project saved."
+msgstr "Progetto salvato."
+
+msgid "Unsaved project"
+msgstr "Progetto non salvato"
+
+msgid "The project contains unsaved changes."
+msgstr "Il progetto contiene modifiche non salvate."
+
+msgid "Save the project before continuing?"
+msgstr "Salvare il progetto prima di continuare?"
+
+msgid "Open project"
+msgstr "Apri progetto"
+
+msgid "Project open failed"
+msgstr "Apertura progetto non riuscita"
+
+msgid "Project opened."
+msgstr "Progetto aperto."
+
+msgid "New project created."
+msgstr "Nuovo progetto creato."
+
+msgid "Recovery error: "
+msgstr "Errore recupero: "
+
+msgid "Recovery available"
+msgstr "Recupero disponibile"
+
+msgid "An automatic project checkpoint exists. Restore it now?"
+msgstr "È presente un salvataggio automatico del progetto. Vuoi ripristinarlo ora?"
+
+msgid "Project recovered. Save it to a .gxwp file."
+msgstr "Progetto recuperato. Salvalo in un file .gxwp."
+
+msgid "Recovery failed"
+msgstr "Recupero non riuscito"
+
+msgid "The recovery file could not be loaded."
+msgstr "Impossibile caricare il file di recupero."
+
+msgid "Manage, duplicate and rename independent whiteboard scenes."
+msgstr "Gestisci, duplica e rinomina scene indipendenti della lavagna."
+
+msgid "Save, open and recover full multi-scene projects."
+msgstr "Salva, apri e recupera progetti completi con più scene."
+
+msgid "F07 — Scenes, projects and automatic recovery."
+msgstr "F07 — Scene, progetti e recupero automatico."
+
+msgid "F07: multi-scene projects, autosave and crash recovery."
+msgstr "F07: progetti con più scene, salvataggio automatico e recupero."
+
+msgid "Untitled project"
+msgstr "Progetto senza titolo"
+
+msgid "Scene"
+msgstr "Scena"
+
+msgid "copy"
+msgstr "copia"
+
+msgid "Recording warning: "
+msgstr "Avviso registrazione: "
+
+msgid "Diagnostics: "
+msgstr "Rapporto diagnostico: "
+
+msgid "A backup exists. Recover it as a new unsaved project?"
+msgstr "Esiste una copia di sicurezza. Vuoi recuperarla come nuovo progetto non salvato?"
+
+msgid "Backup recovered. Save the project under a NEW filename."
+msgstr "Backup recuperato. Salva il progetto con un NUOVO nome file."
+
+msgid "Backup recovery failed"
+msgstr "Recupero del backup non riuscito"
+
+msgid "Recording completed with warnings"
+msgstr "Registrazione completata con avvisi"
+
+msgid "FFmpeg terminated unexpectedly."
+msgstr "FFmpeg è terminato inaspettatamente."
+
+msgid "FFmpeg could not finalize the recording."
+msgstr "FFmpeg non ha potuto finalizzare la registrazione."
+
+msgid "MP4 conversion failed; the primary MKV has been preserved."
+msgstr "Conversione MP4 non riuscita; il file MKV originale è stato conservato."
+
+msgid "Low available recording disk space."
+msgstr "Spazio disponibile per la registrazione insufficiente."
+
+msgid "Could not query output disk space."
+msgstr "Impossibile verificare lo spazio del disco di destinazione."
+
+msgid "Recording stopped early to protect the output from a full disk."
+msgstr "Registrazione fermata in anticipo per evitare l'esaurimento dello spazio."
+
+msgid "User manual"
+msgstr "Manuale utente"
+
+msgid "Manual unavailable"
+msgstr "Manuale non disponibile"
+
+msgid "Could not open the local manual."
+msgstr "Impossibile aprire il manuale locale."
+
+msgid "The local manual could not be found."
+msgstr "Manuale locale non trovato."
+
+msgid "Version 0.1.0 — Drawing, media, scenes and FFmpeg recording."
+msgstr "Versione 0.1.0 — Disegno, multimedia, scene e registrazione FFmpeg."
+
+msgid "GX Whiteboard Studio 0.1.0 — project and recording workspace."
+msgstr "GX Whiteboard Studio 0.1.0 — progetti e registrazioni."
+
+msgid "Document does not exist."
+msgstr "Il documento non esiste."
+
+msgid "Cannot open the project."
+msgstr "Impossibile aprire il progetto."
+
+msgid "Unsupported document extension."
+msgstr "Estensione del documento non supportata."

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<title>GX Whiteboard Studio</title>
+<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#285a92"/><stop offset="1" stop-color="#153450"/></linearGradient></defs>
+<rect x="12" y="12" width="232" height="232" rx="49" fill="url(#b)"/>
+<rect x="34" y="45" width="188" height="144" rx="13" fill="#f3f8ff" stroke="#abc8e7" stroke-width="4"/>
+<path d="M58 143l32-34 24 22 35-39 23 18" fill="none" stroke="#2879b5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="174" cy="104" r="9" fill="#ef8d46"/>
+<path d="M91 213h74" stroke="#cae0f8" stroke-width="8" stroke-linecap="round"/>
+<path d="M156 206l49-52 16 15-52 49-19 5z" fill="#f9bd77" stroke="#8f4d29" stroke-width="3"/>
+<path d="M204 154l9-9q4-4 8 1l10 9q3 4-1 8l-9 6z" fill="#f7f7fd"/>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-gxwb-project">
+    <comment>GX Whiteboard Studio project</comment>
+    <comment xml:lang="it">Progetto GX Whiteboard Studio</comment>
+    <glob pattern="*.gxwp" weight="75"/>
+    <icon name="gx-whiteboard-studio"/>
+  </mime-type>
+  <mime-type type="application/x-gxwb-board">
+    <comment>GX Whiteboard Studio single board</comment>
+    <comment xml:lang="it">Lavagna singola GX Whiteboard Studio</comment>
+    <glob pattern="*.gxwb" weight="75"/>
+    <icon name="gx-whiteboard-studio"/>
+  </mime-type>
+</mime-info>
